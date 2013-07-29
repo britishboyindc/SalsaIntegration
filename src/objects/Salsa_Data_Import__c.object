@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>City__c</fullName>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Close_Date_Calc__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATEVALUE(
+MID(Transaction_Date__c,12,4)
+&amp;&quot;-&quot;&amp;
+Case (MID(Transaction_Date__c,5,3),
+
+&quot;Jan&quot;,&quot;01&quot;,
+&quot;Feb&quot;,&quot;02&quot;,
+&quot;Mar&quot;,&quot;03&quot;,
+&quot;Apr&quot;,&quot;04&quot;,
+&quot;May&quot;,&quot;05&quot;,
+&quot;June&quot;,&quot;06&quot;,
+&quot;Jul&quot;,&quot;07&quot;,
+&quot;Aug&quot;,&quot;08&quot;,
+&quot;Sep&quot;,&quot;09&quot;,
+&quot;Oct&quot;,&quot;10&quot;,
+&quot;Nov&quot;,&quot;11&quot;,
+&quot;Dec&quot;,&quot;12&quot;,
+
+&quot;&quot;)
+&amp;&quot;-&quot;&amp;
+MID(Transaction_Date__c,9,2)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Close Date Calc</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Created_Contribution__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Created Contribution</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Salsa Data Imports</relationshipLabel>
+        <relationshipName>Salsa_Data_Imports</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DIA_Key__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>DIA Key</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Data_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Data Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Donations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Actions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Districts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supporters</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Donation_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Donation Amount</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Donation_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;Donation from &quot; &amp; First_Name__c  &amp; &quot; &quot; &amp; Last_Name__c &amp; &quot; - &quot; &amp; TEXT( YEAR(Close_Date_Calc__c) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Donation Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Entered_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Entered Email</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Error_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Error Code</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>First Name</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>In_Honor_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>In Honor Address</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>In_Honor_Name_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>In Honor Name Email</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>In_Honor_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>In Honor Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>In_Memory_Of_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>In Memory Of Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manual_Processing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Tagged when a Salsa Contact does not match an email or Salsa Id, but does match on one or more records using the Identity Key Value</inlineHelpText>
+        <label>Manual Processing</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PNReference__c</fullName>
+        <externalId>false</externalId>
+        <label>PNReference</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Postal_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Postal Code</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Processed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Processed Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Receive_Email__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Salsa Receive Email Code</inlineHelpText>
+        <label>Receive Email</label>
+        <length>5</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Remain_Anonymous__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Remain Anonymous</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Salsa_Source_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Salsa Source Details</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>25</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Requires Processing</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Processed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Error in Processing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Street_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Street 2</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Street__c</fullName>
+        <externalId>false</externalId>
+        <label>Street</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supporter_Key__c</fullName>
+        <externalId>false</externalId>
+        <label>Supporter Key</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supporter_Organization__c</fullName>
+        <externalId>false</externalId>
+        <label>Supporter Organization</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tracking_Code__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Donation Tracking Code from Salsa</inlineHelpText>
+        <label>Tracking Code</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Transaction_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Transaction Date</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Validated_Email__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Validated Entered Email as correct format</inlineHelpText>
+        <label>Validated Email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Zip4__c</fullName>
+        <externalId>false</externalId>
+        <label>Zip4</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Salsa Data Import</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Donation_Amount__c</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <columns>DIA_Key__c</columns>
+        <columns>Data_Type__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Donations</fullName>
+        <columns>NAME</columns>
+        <columns>DIA_Key__c</columns>
+        <columns>Donation_Amount__c</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Data_Type__c</field>
+            <operation>equals</operation>
+            <value>Donations</value>
+        </filters>
+        <label>Donations</label>
+    </listViews>
+    <listViews>
+        <fullName>Processed</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Processed_Date__c</columns>
+        <columns>Data_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Processed</value>
+        </filters>
+        <label>Processed</label>
+    </listViews>
+    <listViews>
+        <fullName>Supporters</fullName>
+        <columns>NAME</columns>
+        <columns>DIA_Key__c</columns>
+        <columns>Supporter_Key__c</columns>
+        <columns>Entered_Email__c</columns>
+        <columns>Validated_Email__c</columns>
+        <columns>Street__c</columns>
+        <columns>City__c</columns>
+        <columns>State__c</columns>
+        <columns>Postal_Code__c</columns>
+        <columns>Salsa_Source_Details__c</columns>
+        <columns>Receive_Email__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Data_Type__c</field>
+            <operation>equals</operation>
+            <value>Supporters</value>
+        </filters>
+        <label>Supporters</label>
+    </listViews>
+    <nameField>
+        <displayFormat>SDI-{00000}</displayFormat>
+        <label>Salsa Data Import Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Salsa Data Imports</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
